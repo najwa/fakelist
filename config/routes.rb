@@ -1,11 +1,7 @@
 Fakelist::Application.routes.draw do
-  get "posts/new"
-  get "posts/create"
-  get "posts/edit"
-  get "posts/update"
-  get "posts/show"
-  get "posts/destroy"
-  resources :cities, only: [:index, :show]
+  resources :cities, only: [:index, :show] do
+    resources :subcategories, only: [:show]
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

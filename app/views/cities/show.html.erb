@@ -1,2 +1,16 @@
-<h1>Cities#show</h1>
-<p>Find me in app/views/cities/show.html.erb</p>
+<% provide(:title, @city.name) %>
+<h1><%= "Listings in #{@city.name}" %></h1>
+
+<section>
+	<% @categories.each do |category| %>
+		<div class="category"><%= category.name %></div>
+		<% category.subcategories.each do |subcategory| %>
+			<div class = "subcategory">
+ 				<%= link_to subcategory.name, 
+						city_subcategory_path(@city, subcategory) %>
+ 				<%#= link_to subcategory.name, 
+						city_subcategory_path(subcategory) %>			
+					</div>
+		<% end %>
+	<% end %>
+</section>
