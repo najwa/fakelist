@@ -1,0 +1,10 @@
+<% provide(:title, "#{@city.name} - #{@subcategory.name}") %>
+<h1><%= "#{@city.name} - #{@subcategory.name}" %></h1>
+
+<section>
+	<%= @city.inspect %>
+	<%= @subcategory.inspect %>
+	<% @posts.each do |post| %>
+		<div class="post"><%= post.title %></div>
+	<% end %>
+</section>

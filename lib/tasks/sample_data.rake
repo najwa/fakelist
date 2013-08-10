@@ -15,11 +15,23 @@ namespace :db do
 
   def make_categories
     5.times do |n|
-      name  = "Category #{n+1}"
+      name  = "Category #{n}"
       category = Category.create!(name: name)
       10.times do |m|
-        name = "Subcategory #{n+1} - #{m+1}"
-        Subcategory.create!(name: name, category_id: category.id )
+        name = "Subcategory #{n} - #{m}"
+        subcategory = Subcategory.create!(name: name, category_id: category.id )
+        50.times do |l|
+              price     = 1+rand(400)
+              body      = Faker::Lorem.paragraph(6)
+              location  = Faker::Address.street_address
+              email     = Faker::Internet.email
+              city_id   = 1 + rand(10)
+              title     = "Post #{city_id}, #{subcategory.id}, #{l}"
+              Post.create!(title: title, price: price, body: body, 
+                           location: location, email: email,
+                           subcategory_id: subcategory.id,
+                           city_id: city_id)
+        end
       end
     end
   end
