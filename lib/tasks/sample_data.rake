@@ -10,4 +10,11 @@ namespace :db do
       City.create!(name: name)
     end
   end
+
+  def make_categories
+    5.times do |n|
+      name  = "Category #{n}"
+      Category.create!(name: name)
+    end
+  end
 end

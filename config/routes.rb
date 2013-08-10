@@ -1,4 +1,10 @@
 Fakelist::Application.routes.draw do
+  get "posts/new"
+  get "posts/create"
+  get "posts/edit"
+  get "posts/update"
+  get "posts/show"
+  get "posts/destroy"
   resources :cities, only: [:index, :show]
 
   # The priority is based upon order of creation: first created -> highest priority.
