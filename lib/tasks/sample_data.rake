@@ -21,12 +21,12 @@ namespace :db do
         name = "Subcategory #{n} - #{m}"
         subcategory = Subcategory.create!(name: name, category_id: category.id )
         50.times do |l|
+              title     = Faker::Lorem.sentence(1+rand(6))
               price     = 1+rand(400)
               body      = Faker::Lorem.paragraph(6)
               location  = Faker::Address.street_address
               email     = Faker::Internet.email
               city_id   = 1 + rand(10)
-              title     = "Post #{city_id}, #{subcategory.id}, #{l}"
               Post.create!(title: title, price: price, body: body, 
                            location: location, email: email,
                            subcategory_id: subcategory.id,

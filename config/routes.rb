@@ -3,6 +3,8 @@ Fakelist::Application.routes.draw do
     resources :subcategories, only: [:show]
   end
 
+  resources :posts
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

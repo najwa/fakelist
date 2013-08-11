@@ -2,9 +2,12 @@
 <h1><%= "#{@city.name} - #{@subcategory.name}" %></h1>
 
 <section>
-	<%= @city.inspect %>
-	<%= @subcategory.inspect %>
 	<% @posts.each do |post| %>
-		<div class="post"><%= post.title %></div>
+		<div class="post">
+			<span class = "title"><%= link_to post.title, post %> </span>
+			<span class = "price"><%= number_to_currency(post.price) %> </span>
+			<span class = "title">-</span>
+			<span class = "location"><%= "(#{post.location})" %> </span>
+		</div>
 	<% end %>
 </section>
